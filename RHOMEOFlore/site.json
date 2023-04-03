@@ -49,7 +49,7 @@
       "definition": "0 pour un placement en dehors d'un transect"
     },
     "id_sites_group": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Groupe de site",
       "type_util": "sites_group",
       "keyValue": "id_sites_group",
@@ -61,7 +61,7 @@
       "definition": "Liste des zones de prospections définies pour le protocole."
     },
     "desc_pente": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Profil du terrain",
       "values": [
         {
@@ -82,7 +82,7 @@
       "definition": "Element descriptif de la typologie globale du terrain"
     },
     "expo": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Exposition du terrain",
       "values": [
         {

@@ -59,7 +59,7 @@
       "definition": "1 : individu isolé\nx : individus multiples"
     },
     "id_nomenclature_behaviour": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Type de comportement reproducteur",
       "api": "nomenclatures/nomenclature/OCC_COMPORTEMENT",
       "application": "GeoNature",
@@ -79,7 +79,7 @@
       "required": "({value}) => !value.id_nomenclature_life_stage"
     },
     "id_nomenclature_life_stage": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Stade de vie",
       "api": "nomenclatures/nomenclature/STADE_VIE",
       "application": "GeoNature",
@@ -99,7 +99,7 @@
       "required": "({value}) => !value.id_nomenclature_behaviour"
     },
     "id_nomenclature_sex": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Sexe",
       "api": "nomenclatures/nomenclature/SEXE",
       "application": "GeoNature",

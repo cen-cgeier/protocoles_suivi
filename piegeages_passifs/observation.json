@@ -16,7 +16,7 @@
   ],
   "specific": {
     "determiner": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Déterminateur",
       "api": "users/menu/__MODULE.ID_LIST_OBSERVER",
       "application": "GeoNature",
@@ -27,7 +27,7 @@
       "required": true
     },
   "id_nomenclature_determination_method": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Méthode de détermination",
       "api": "nomenclatures/nomenclature/METH_DETERMIN",
       "application": "GeoNature",
@@ -41,7 +41,7 @@
       }
     },
     "id_nomenclature_life_stage": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Stade de vie",
       "api": "nomenclatures/nomenclature/STADE_VIE",
       "application": "GeoNature",
@@ -55,7 +55,7 @@
       }
     },
     "id_nomenclature_sex": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Sexe",
       "api": "nomenclatures/nomenclature/SEXE",
       "application": "GeoNature",

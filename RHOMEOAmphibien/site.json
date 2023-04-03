@@ -80,7 +80,7 @@
       "required": true
     },
     "substrat": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Substrat du sol",
       "api": "nomenclatures/nomenclature/TYP_SUBSTRAT",
       "application": "GeoNature",
@@ -106,19 +106,19 @@
       "required": true
     },
     "esp_veget": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Végétation aquatique",
       "values": ["Absence", "Abondance faible", "Abondance moyenne", "Abondante"],
       "required": true
     },
     "esp_poisson": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Poisson",
       "values": ["Absence certaine", "Absence probable", "Présence","Indéterminé"],
       "required": true
     },
     "esp_ecrevisse": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Ecrevisse",
       "values": ["Absence certaine", "Absence probable", "Présence","Indéterminé"],
       "required": true
@@ -141,7 +141,7 @@
       "hidden": true
     },
     "id_sites_group": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Groupe de site",
       "type_util": "sites_group",
       "keyValue": "id_sites_group",

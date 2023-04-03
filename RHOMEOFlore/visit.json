@@ -65,7 +65,7 @@
       "required": true
     },
     "surf_releve": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Surface du relevé (m²)",
       "values": [
         {
@@ -85,7 +85,7 @@
       "required": true
     },
     "id_nomenclature_physio_veg": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Physionomie",
       "api": "nomenclatures/nomenclature/PHYSIO_VEGETALE",
       "application": "GeoNature",

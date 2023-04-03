@@ -25,7 +25,7 @@
   "specific": {
    
     "id_sites_group": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Secteur",
       "type_util": "sites_group",
       "keyValue": "id_sites_group",

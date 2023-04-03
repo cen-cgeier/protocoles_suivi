@@ -35,7 +35,7 @@
       "required": false
     },
     "id_sites_group": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Groupe de site",
       "type_util": "sites_group",
       "keyValue": "id_sites_group",
@@ -59,7 +59,7 @@
       "hidden": true
     },
     "id_nomenclature_hab_odo": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Habitat odonatologique",
       "api": "nomenclatures/nomenclature/HABITAT_ODO",
       "application": "GeoNature",

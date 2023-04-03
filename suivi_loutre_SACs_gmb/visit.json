@@ -23,7 +23,7 @@
   "specific" :{
 
     "id_nomenclature_tech_collect_campanule": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Technique de collecte (Campanule)",
       "api": "nomenclatures/nomenclature/TECHNIQUE_OBS",
       "application": "GeoNature",
@@ -39,7 +39,7 @@
     },
 
     "condition_prospection": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Conditions de la prospection (vis-à-vis des conditions météorologiques et hydrologiques)",
       "api": "nomenclatures/nomenclature/CONDITION_PROSPECTION",
       "application": "GeoNature",

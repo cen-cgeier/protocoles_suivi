@@ -37,7 +37,7 @@
 
 
     "technique_observation": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Méthode d'observation",
       "api": "nomenclatures/nomenclature/METH_OBS",
       "group2inpn":"Mammifères",
@@ -57,7 +57,7 @@
 
 
     "etat_biologique": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Etat biologique de l'observation",
       "api": "nomenclatures/nomenclature/ETA_BIO",
       "application": "GeoNature",
@@ -76,7 +76,7 @@
 
 
     "statut_observation": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Statut d'observation",
       "api": "nomenclatures/nomenclature/STATUT_OBS",
       "application": "GeoNature",
@@ -93,7 +93,7 @@
 
 
     "statut_source": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Statut de la source",
       "api": "nomenclatures/nomenclature/STATUT_SOURCE",
       "application": "GeoNature",
@@ -109,7 +109,7 @@
 
 
     "methode_deter": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Méthode de détermination",
       "api": "nomenclatures/nomenclature/METH_DETERMIN",
       "application": "GeoNature",
@@ -127,7 +127,7 @@
 
 
     "stade_de_vie": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Stade de vie",
       "api": "nomenclatures/nomenclature/STADE_VIE",
       "application": "GeoNature",
@@ -152,7 +152,7 @@
     },
 
     "sexe": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Sexe",
       "api": "nomenclatures/nomenclature/SEXE",
       "application": "GeoNature",

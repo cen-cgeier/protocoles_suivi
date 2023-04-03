@@ -14,7 +14,7 @@
       "type_util": "nomenclature"
     },
     "id_nomenclature_life_stage": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Stade de vie",
       "api": "nomenclatures/nomenclature/STADE_VIE",
       "params" : {

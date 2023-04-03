@@ -33,7 +33,7 @@
   "specific" :{
 
     "id_nomenclature_tech_collect_campanule": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Technique de collecte (Campanule)",
       "api": "nomenclatures/nomenclature/TECHNIQUE_OBS",
       "application": "GeoNature",
@@ -52,7 +52,7 @@
 
 
     "indices_blai": {     
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Indices de présence de Blaireau observés à proximité du terrier",
       "api": "nomenclatures/nomenclature/INDICES_BLAIREAU",
       "application": "GeoNature",
@@ -82,7 +82,7 @@
 
 
     "perturb": {     
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Perturbations ou destructions sur les blaireaux ou la blaireautière",
       "api": "nomenclatures/nomenclature/PERTURB_BLAIREAU",
       "application": "GeoNature",
@@ -95,7 +95,7 @@
     },
 
     "depredation": {     
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Déprédations engendrées par la présence de Blaireaux",
       "api": "nomenclatures/nomenclature/DEPRED_BLAIREAU",
       "application": "GeoNature",

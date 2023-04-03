@@ -71,7 +71,7 @@
       "required": true
     },
     "vvent": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Force de vent (beaufort)",
       "values": [
         {

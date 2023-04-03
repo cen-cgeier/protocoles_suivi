@@ -118,7 +118,7 @@
       "default": false
     },
     "id_nomenclature_observation_status": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Statut d'observation",
       "api": "nomenclatures/nomenclature/STATUT_OBS",
       "application": "GeoNature",

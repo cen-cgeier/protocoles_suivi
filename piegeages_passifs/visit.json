@@ -16,7 +16,7 @@
   ],
   "specific": {
     "id_dataset": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Jeu de données",
       "type_util": "dataset",
       "api": "meta/datasets",
@@ -41,7 +41,7 @@
       "required": true
     },
     "observers": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Opérateur(s) du relevé (= observateur.s)",
       "api": "users/menu/__MODULE.ID_LIST_OBSERVER",
       "application": "GeoNature",

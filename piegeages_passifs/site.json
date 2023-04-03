@@ -34,7 +34,7 @@
       "required": true
     },
     "id_inventor": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Installateur du piège",
       "api": "users/menu/__MODULE.ID_LIST_OBSERVER",
       "application": "GeoNature",
@@ -56,7 +56,7 @@
       "hidden": true
     },
     "id_trap_type": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Type de piège",
       "api": "nomenclatures/nomenclature/METH_OBS",
       "application": "GeoNature",

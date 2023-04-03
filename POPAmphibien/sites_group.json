@@ -24,7 +24,7 @@
   ],
   "specific": {
     "id_inventor": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Observateur principal",
       "api": "users/menu/__MODULE.ID_LIST_OBSERVER",
       "application": "GeoNature",
@@ -34,7 +34,7 @@
       "required": true
     },
     "id_dataset": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Jeu de données",
       "type_util": "dataset",
       "api": "meta/datasets",

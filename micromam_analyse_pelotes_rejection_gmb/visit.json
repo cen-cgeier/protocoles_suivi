@@ -26,7 +26,7 @@
 
 
     "id_nomenclature_tech_collect_campanule": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Technique de collecte (Campanule)",
       "api": "nomenclatures/nomenclature/TECHNIQUE_OBS",
       "application": "GeoNature",
@@ -67,7 +67,7 @@
     },
 
     "observers": {
-        "type_widget": "datalist",
+        "type_widget": "dataset",
         "attribut_label": "Observateurs",
         "api": "users/menu/__MODULE.ID_LIST_OBSERVER",
         "application": "GeoNature",
@@ -79,7 +79,7 @@
     },
 
     "determinateur": {
-        "type_widget": "datalist",
+        "type_widget": "dataset",
         "attribut_label": "Déterminateurs",
         "api": "users/menu/__MODULE.ID_LIST_OBSERVER",
         "application": "GeoNature",
@@ -97,7 +97,7 @@
     },
 
     "predateur": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Prédateur occupant le site",
       "api": "nomenclatures/nomenclature/PRED_PELOTES",
       "application": "GeoNature",

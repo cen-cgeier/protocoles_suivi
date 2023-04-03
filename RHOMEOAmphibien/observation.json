@@ -26,7 +26,7 @@
       "type_util": "taxonomy"
     },
     "id_nomenclature_life_stage": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Stade de vie : stade de développement du sujet",
       "api": "nomenclatures/nomenclature/STADE_VIE",
       "application": "GeoNature",

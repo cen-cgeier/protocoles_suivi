@@ -108,7 +108,7 @@
       "hidden": "({value}) => value.site_protege != 'Oui'"
     },
     "id_sites_group": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Aire",
       "type_util": "sites_group",
       "keyValue": "id_sites_group",

@@ -81,7 +81,7 @@
       "hidden": "({value}) => value.site_protege != 'Oui'"
     },
     "habitat_a":{
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Type d’habitat autour du point d'observation (jusqu'à 30 mètres) côté gauche",
       "api": "habref/habitats/autocomplete",
       "application": "GeoNature",
@@ -94,7 +94,7 @@
       }
     },
     "habitat_b":{
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Type d’habitat autour du point d'observation (jusqu'à 30 mètres) côté droite",
       "api": "habref/habitats/autocomplete",
       "application": "GeoNature",
@@ -171,7 +171,7 @@
       "type_util": "nomenclature"
     },
     "id_sites_group": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Aire",
       "type_util": "sites_group",
       "keyValue": "id_sites_group",

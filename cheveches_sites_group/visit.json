@@ -32,7 +32,7 @@
   ],
   "specific": {
     "id_base_site": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Site",
       "type_util": "site",
       "keyValue": "id_base_site",

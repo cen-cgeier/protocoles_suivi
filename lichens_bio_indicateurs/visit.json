@@ -109,7 +109,7 @@
   ],
   "specific": {
     "descripteur": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Descripteur",
       "api": "users/menu/__MODULE.ID_LIST_OBSERVER",
       "application": "GeoNature",
@@ -159,7 +159,7 @@
       "hidden": "({value}) => value.test_detectabilite"
     },
     "habitat_principal": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Habitat naturel principal",
       "description": "Confirmation sur place, avec aide SIG et clé de détermination (© C. Gaubertville)",
       "api": "habref/habitats/autocomplete",
@@ -175,7 +175,7 @@
       "hidden": "({value}) => value.test_detectabilite"
     },
     "habitat_associe": {
-      "type_widget": "datalist",
+      "type_widget": "dataset",
       "attribut_label": "Habitat naturel associé",
       "description": "Confirmation sur place, avec aide SIG et clé de détermination (© C. Gaubertville)",
       "api": "habref/habitats/autocomplete",
