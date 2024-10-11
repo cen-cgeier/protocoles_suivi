@@ -44,6 +44,7 @@
       "attribut_label": "Para taxon",
       "description": "A remplir si groupe de taxon",
       "values": [
+        "Apothécies noires à rebord marron",
         "Crustacé verdatre",
         "Crustacé aérolé",
         "Crustacé gris/bleu",
@@ -53,6 +54,7 @@
         "Lirelle",
         "Parmelia brun",
         "Parmelia sulcata / saxatilis / submontana",
+        "Peau d’éléphant",
         "Périthèces",
         "Périthèces noir",
         "Pertusaria noir",
