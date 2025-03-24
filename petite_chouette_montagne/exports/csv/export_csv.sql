@@ -168,8 +168,7 @@ SELECT
 ------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------
 
--- View: gn_monitoring.v_export_petite_chouette_montagne_onf_lpo
-DROP VIEW IF EXISTS gn_monitoring.v_export_petite_chouette_montagne_onf_lpo;
+-- View: gn_monitoring.v_export_petite_chouette_montagne_onf_lpoDROP VIEW IF EXISTS gn_monitoring.v_export_petite_chouette_montagne_onf_lpo;
 
 CREATE OR REPLACE VIEW gn_monitoring.v_export_petite_chouette_montagne_onf_lpo AS
 
@@ -183,25 +182,28 @@ WITH source AS (
 	LIMIT 1
 
 ), sites AS (
+
     SELECT
-        s.id_base_site,
+
+        id_base_site,
 		sg.sites_group_name,
 		sg.sites_group_code,
 		sg.sites_group_description,
 		sg.comments sites_group_comments,
-		s.base_site_name,
-		s.base_site_description,
-		s.id_inventor,
-		CONCAT(r.nom_role, ' ', r.prenom_role) inventor,
-		COALESCE (s.meta_update_date, first_use_date) AS date_site, 
-		s.geom_local,
-		st_x(ST_Centroid(s.geom)) AS wgs84_x,
-		st_y(ST_Centroid(s.geom))AS wgs84_y,
-		st_x(ST_Centroid(s.geom_local)) AS l93_x,
-		st_y(ST_Centroid(s.geom_local))AS l93_y,
-		sg.comments,
-		s.altitude_min
-        FROM gn_monitoring.t_base_sites s
+		base_site_name,
+		base_site_description,
+		id_inventor,
+		CONCAT(r.nom_role, ' ', prenom_role) inventor,
+		COALESCE (t_base_sites.meta_update_date, first_use_date) AS date_site,
+		altitude_min,
+		geom_local,
+		st_x(ST_Centroid(geom)) AS wgs84_x,
+		st_y(ST_Centroid(geom))AS wgs84_y,
+		st_x(ST_Centroid(geom_local)) AS l93_x,
+		st_y(ST_Centroid(geom_local))AS l93_y,
+		comments
+
+        FROM gn_monitoring.t_base_sites
 		JOIN gn_monitoring.t_site_complements sc USING (id_base_site)
 		LEFT JOIN gn_monitoring.t_sites_groups sg USING (id_sites_group)
     	JOIN utilisateurs.t_roles r ON  id_inventor = r.id_role
@@ -219,6 +221,7 @@ WITH source AS (
         id_digitiser,
         visit_date_min AS date_min,
 	    COALESCE (visit_date_max, visit_date_min) AS date_visit,
+		(vc."data"::json#>>'{num_passage}')::text AS num_passage,
         ref_nomenclatures.get_nomenclature_label((vc."data"::json#>>'{device_repasse}')::int) device_repasse,
 		(vc."data"::json#>>'{fructif_fragus}')::text AS fructif_fragus,
 		(vc."data"::json#>>'{time_sunset}')::text AS time_sunset,
@@ -233,9 +236,11 @@ WITH source AS (
 
 ), observers AS (
     SELECT
-        array_agg(r.id_role) AS ids_observers,
-        STRING_AGG(CONCAT(r.nom_role, ' ', prenom_role), ' ; ') AS observers,
-        id_base_visit
+        id_base_visit,
+        (array_agg(CONCAT(r.nom_role, ' ', prenom_role)))[1] AS "observers1",
+        case when cardinality((array_agg(r.id_role))) > 1 
+        	then array_to_string(((array_agg(CONCAT(r.nom_role, ' ', prenom_role)))[2:]),' ; ')
+        	else null end "observers2"
     FROM gn_monitoring.cor_visit_observer cvo
     JOIN utilisateurs.t_roles r
     ON r.id_role = cvo.id_role
@@ -252,9 +257,7 @@ WITH source AS (
     	(oc."data"::json#>>'{duration_all}')::int AS "temps total passé au point en minutes (10 min)",
     	(oc."data"::json#>>'{chev_chant}')::int AS "Nb total de chanteur Chevêchette",
     	ref_nomenclatures.get_nomenclature_label((oc."data"::json#>>'{chev_sexe}')::int) AS "Sexe",
-    	(oc."data"::json#>>'{nb_passereau}')::text AS "Nbre espèces de passereaux qui répondent à la repasse chevêchette dans un rayon de 10m",
-    	(oc."data"::json#>>'{hulotte}')::text AS "Présence de Chouette Hulotte",
-    	(oc."data"::json#>>'{nb_hulotte}')::text AS "Nombre d’individus Hulotte différents contactés (entendus/vu…)"
+    	(oc."data"::json#>>'{nb_passereau}')::text AS "Nbre passereaux répondants repasse chevêchette dans r 10m"
 
     FROM gn_monitoring.t_observations o 
 		JOIN gn_monitoring.t_observation_complements oc USING (id_observation)
@@ -280,7 +283,7 @@ WITH source AS (
 
 SELECT
 
-		o.id_observation AS "Identifiant unique universel de l'observation",
+		o.uuid_observation::uuid AS "Identifiant unique universel de l'observation",
 		meta.dataset_name "Jeux de données",
 		CASE WHEN t_roles.nom_role IS NULL AND t_roles.prenom_role IS NULL
 			THEN b_orga.nom_organisme
@@ -289,27 +292,19 @@ SELECT
 			ELSE CONCAT(t_roles.nom_role, ' ', t_roles.prenom_role) || ' (' || b_orga.nom_organisme || ')' 
 		END AS "Maitre d'ouvrage", 
 		ref_nomenclatures.get_nomenclature_label(id_nomenclature_financing_type::int) "Statut juridique",
+		NULL "Contrat",
+		'Faune' "Groupe taxonomique",
 		'Protocole' "Méthode d'observation",
-		s.sites_group_name "Nom de la zone",
-		s.sites_group_code "Code de la zone",
-		s.sites_group_description "Description de la zone",
-		s.sites_group_comments "Commentaire de la zone",
 		s.sites_group_name||'_'||s.base_site_name "nom du point",
-		s.base_site_name "Numéro du point",
-		s.base_site_description "Description du numéro",
-		s.inventor "Créateur du point",
-		s.date_site "date de création du point",
-		s.altitude_min AS altitude,
-		ST_AsText(s.geom_local) wkt_l93,
 		s.l93_x x_l93,
 		s.l93_y y_l93,
-		s.wgs84_x x_wgs84,
-		s.wgs84_y y_wgs84,
-		s.comments "Commentaire localisation",
+		s.comments "Commentaire de localisation",
 		v.date_min "date",
-		v.comments AS "Commentaire de la visite",
-		obs.observers "Observateurs",
-		o.cd_nom,
+		s.base_site_name "Numéro du point",
+		v.num_passage "Numéro de passage",
+    		(oc."data"::json#>>'{listen_time}')::text AS "Heure début du point",
+		obs.observers1 "Observateur1",
+		obs.observers2 "Observateur2",
 		chev."Taxon 1",
 		chev."Nb Chevêchette avant repasse",
 		chev."Nb Chevêchette durant la repasse",
@@ -319,9 +314,7 @@ SELECT
 		chev."Nb total de chanteur Chevêchette",
 		chev."Sexe",
 		v.device_repasse "Appareil de repasse utilisé",
-		chev."Nbre espèces de passereaux qui répondent à la repasse chevêchette dans un rayon de 10m",
-		chev."Présence de Chouette Hulotte",
-		chev."Nombre d’individus Hulotte différents contactés (entendus/vu…)",
+		chev."Nbre passereaux répondants repasse chevêchette dans r 10m",
 		v.fructif_fragus "Fructifications du hêtre automne précédent",
 		CONCAT_WS(', ','CS: '||v.time_sunset,v.etat_vent,v.etat_ciel,v.neige,o.comments) AS "Commentaire",
 		teng."Taxon 2",
@@ -330,7 +323,9 @@ SELECT
 		teng."durée de la repasse Tengmalm en minutes (3 min maxi)",
 		teng."Nb Tengmalm jusqu'à la fin des 10 min",
 		teng."temps total Tengmalm passé au point en minutes (10 min)",
-		teng."Nb total de Tengmalm"
+		teng."Nb total de Tengmalm",
+    		(oc."data"::json#>>'{hulotte}')::text AS "Présence de Chouette Hulotte",
+    		(oc."data"::json#>>'{nb_hulotte}')::text AS "Nombre d’individus Hulotte différents contactés"
 
     FROM gn_monitoring.t_observations o 
 		JOIN gn_monitoring.t_observation_complements oc USING (id_observation)
@@ -352,12 +347,13 @@ SELECT
 		ON meta_actor.id_organism = b_orga.id_organisme
     JOIN sites s 
         ON s.id_base_site = v.id_base_site
-	JOIN gn_commons.t_modules m 
+	JOIN gn_commons.t_modules m JOIN observers obs ON obs.id_base_visit = v.id_base_visit 
         ON m.id_module = v.id_module
 	JOIN taxonomie.taxref t 
         ON t.cd_nom = o.cd_nom
 	JOIN source 
         ON TRUE
 	JOIN observers obs ON obs.id_base_visit = v.id_base_visit
+
     WHERE m.module_code = :module_code
     ;
